@@ -1,0 +1,59 @@
+.prose,
+.xl\:prose-lg {
+  // ------------------------------------------ aligncenter ------------------------------------------
+  > * {
+    @apply lg:max-w-screen-md my-[1.1428571em] sm:my-[1.3333333em];
+  }
+
+  .aligncenter {
+    clear: both;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  // ------------------------------------------ alignleft ------------------------------------------
+  > *.alignleft {
+    @apply mt-0;
+  }
+  .alignleft {
+    float: left;
+    margin-top: 0;
+    @apply mb-4 mr-4 sm:mb-8 sm:mr-8;
+  }
+
+  // ------------------------------------------ alignright ------------------------------------------
+  > *.alignright {
+    @apply mt-0;
+  }
+  .alignright {
+    float: right;
+    margin-top: 0;
+    @apply mb-4 ml-4 sm:mb-8 sm:ml-8;
+  }
+  #emojics-root {
+    clear: both;
+    margin: 0 !important;
+  }
+  a,
+  strong,
+  blockquote {
+    @apply dark:text-neutral-300;
+  }
+
+  // =============================================
+  // ---------------------------------- ## align-wrap ## ----------------------------------
+  &.entry-content--not-has-sidebar {
+    @screen lg {
+      .alignwide {
+        width: 100vw;
+        max-width: calc(80vw - 16px);
+        margin-left: calc(calc(50% - 40vw) + 8px);
+      }
+      .alignfull {
+        width: 100vw;
+        max-width: calc(100vw - 17px);
+        margin-left: calc(calc(50% - 50vw) + 8px);
+      }
+    }
+  }
+}

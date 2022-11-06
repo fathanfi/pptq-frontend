@@ -1,0 +1,61 @@
+.nc-SingleHeader {
+  .nc-CategoryBadgeList {
+    a {
+      @apply transition-colors hover:text-white duration-300 relative inline-flex py-1 rounded-full font-medium text-xs px-3 text-pink-800 bg-pink-100 hover:bg-pink-800 my-1 mr-2;
+    }
+  }
+}
+//
+.wp-block-group.has-background {
+  border-radius: 1rem;
+  padding: 1.25em 2.375em;
+}
+//
+.entry-title {
+  overflow-wrap: break-word;
+}
+//
+.page-links {
+  @apply flex flex-wrap space-x-2;
+  .post-page-numbers {
+    @apply flex items-center justify-center border border-primary-6000 w-9 h-9 rounded-full no-underline;
+    &.current {
+      @apply text-primary-50 bg-primary-6000;
+    }
+  }
+}
+
+//
+.post-password-form {
+  @apply relative flex flex-col items-start sm:flex-row sm:flex-wrap;
+  .post-password-form__label {
+    @apply block w-full mb-1;
+  }
+  .post-password-form__input {
+    @apply h-11 inline-block rounded-md border-neutral-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-transparent flex-grow w-full max-w-md;
+  }
+  .post-password-form__submit {
+    @apply flex-shrink-0 mt-2.5 sm:mt-0 sm:ml-2.5 h-11 px-8 rounded-md cursor-pointer bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700;
+  }
+}
+
+//
+.prose {
+  audio,
+  iframe,
+  embed {
+    max-width: 100%;
+    width: 100vw;
+  }
+}
+//
+p.no-comments {
+  @apply mt-5;
+}
+
+//
+.modalPhotos-single-gallery {
+  .glide__bullet--active {
+    @apply block;
+  }
+}

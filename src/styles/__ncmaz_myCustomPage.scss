@@ -1,0 +1,30 @@
+// My Custom page.php
+.page-template-page-custom.page-template-page-custom-php {
+  .wp-block-group.has-background {
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// SAFE CLASS -- BECAUSE TAILWIND JIT CURRENT NOT SUPPORT YET
+.ncmaz-myCustomPage {
+  .nc-SectionLatestPosts-hasSidebar {
+    @apply flex flex-col lg:flex-row;
+    > .wp-block-column:nth-child(1) {
+      @apply w-full lg:w-3/5 xl:w-2/3 xl:pr-2 2xl:pr-6;
+      flex-basis: unset !important;
+    }
+    > .wp-block-column:nth-child(2) {
+      @apply w-full mt-5 lg:mt-0 lg:w-2/5 xl:w-1/3;
+      flex-basis: unset !important;
+    }
+  }
+
+  .prose {
+    @apply max-w-none;
+
+    & > * {
+      @apply max-w-none;
+    }
+  }
+}

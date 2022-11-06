@@ -1,0 +1,20 @@
+.prose,
+.xl\:prose-lg {
+  // ---------------------------------- ## ## List ----------------------------------
+  .wp-block-categories-list.aligncenter {
+    text-align: left;
+  }
+
+  .wp-block-latest-comments {
+    @apply list-none;
+    li.wp-block-latest-comments__comment {
+      @apply pl-0;
+      &::before {
+        @apply hidden;
+      }
+      img {
+        @apply my-1;
+      }
+    }
+  }
+}
