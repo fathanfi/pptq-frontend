@@ -204,12 +204,12 @@ function ncmazFe_registerScripts()
     }
 
     $jsFileUrl = (string) $manifestJS['src/main.tsx']['file'];
-    $cssFileUrl = (string) $manifestJS['src/main.tsx']['css'][0];
+    $cssFileUrl = (string) isset( $manifestJS['src/main.tsx']['css'][0] ) ? $manifestJS['src/main.tsx']['css'][0] : '';
     $name = 'vitejs-module--' . $jsFileUrl;
 
     $cssLazyCssWoocommerce = '';
     if (!is_rtl()) {
-        $cssLazyCssWoocommerce = (string) $manifestJS['src/LazyCssWoocommerce.tsx']['css'][0];
+        $cssLazyCssWoocommerce = (string) isset( $manifestJS['src/LazyCssWoocommerce.tsx']['css'][0] ) ? $manifestJS['src/LazyCssWoocommerce.tsx']['css'][0] : '';
     }
     // JS 
     if (is_author()) {

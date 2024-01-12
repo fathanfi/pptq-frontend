@@ -13,7 +13,7 @@ export default ({ mode }) => {
   return defineConfig({
     plugins: [react(), tsconfigPaths()],
     // change this line on dist/assets/main.js
-    // e = `${ncmazFrontendVariables.pluginDir}/wp-content/plugins/ncmaz-frontend/dist/${e}`
+    // e = `${ncmazFrontendVariables.pluginDir}/wp-content/plugins/pptq-frontend/dist/${e}`
     // t7 = `${ncmazFrontendVariables.pluginDir}dist/`
     base: basePublicPath,
     build: {
