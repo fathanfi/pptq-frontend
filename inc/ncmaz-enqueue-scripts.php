@@ -13,7 +13,7 @@ function ncmazFe_addModuleTypeForScripts($tag, $handle, $src)
 {
     if (
         '@vite-client-js' === $handle ||
-        $handle === 'ncmaz-frontend-src-main-tsx' ||
+        $handle === 'pptq-frontend-src-main-tsx' ||
         boolval(preg_match(
             '/^vitejs-module--/',
             $handle,
@@ -242,6 +242,6 @@ function ncmaz_frontend_enqueue_script($hook)
 </script>';
 
     wp_enqueue_script('@vite-client-js', 'http://localhost:5173/@vite/client', ['jquery'], null, true);
-    wp_enqueue_script('ncmaz-frontend-src-main-tsx', 'http://localhost:5173/src/main.tsx', ['jquery'], null, true);
+    wp_enqueue_script('pptq-frontend-src-main-tsx', 'http://localhost:5173/src/main.tsx', ['jquery'], null, true);
 }
 // --------------------------------------------------------------------------------------

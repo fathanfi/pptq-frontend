@@ -65,15 +65,15 @@ module.exports = {
 
     // CORE PLUGIN -----
     // lam dieu nay vi trong core co nhieu block render HTML ma theme khong the phat hien class
-    "../ncmaz-core/src/block-become-author/*.{js,jsx,ts,tsx}",
-    "../ncmaz-core/src/block-newsletter/*.{js,jsx,ts,tsx}",
-    "../ncmaz-core/src/block-videos/*.{js,jsx,ts,tsx}",
+    "../pptq-core/src/block-become-author/*.{js,jsx,ts,tsx}",
+    "../pptq-core/src/block-newsletter/*.{js,jsx,ts,tsx}",
+    "../pptq-core/src/block-videos/*.{js,jsx,ts,tsx}",
 
     // THEME -----
-    "../../themes/ncmaz/assets/**/*.{js,jsx,ts,tsx}",
-    "../../themes/ncmaz/*.php",
-    "../../themes/ncmaz/inc/**/*.php",
-    "../../themes/ncmaz/template-parts/**/*.php",
+    "../../themes/pptq/assets/**/*.{js,jsx,ts,tsx}",
+    "../../themes/pptq/*.php",
+    "../../themes/pptq/inc/**/*.php",
+    "../../themes/pptq/template-parts/**/*.php",
   ],
   safelist,
   darkMode: "class", // or 'media' or 'class',
