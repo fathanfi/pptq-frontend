@@ -39,10 +39,6 @@ const safelist = [
     variants: ["sm", "xl"],
   },
   {
-    pattern: /!h-(14|16|20|24)/,
-    variants: ["sm", "xl"],
-  },
-  {
     pattern: /container/,
     variants: ["sm", "md", "lg", "xl", "2xl"],
   },
@@ -151,7 +147,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
-    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
   ],
 };

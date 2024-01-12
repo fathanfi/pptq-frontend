@@ -124,15 +124,16 @@ function ncmazFe_enqueueScriptCustomize()
             'graphQLBasePath'               => get_site_url(null, '/graphql'),
             'socialsShare'                  => $ncmaz_redux_demo['nc-general-settings--multi-socials-share'],
             'homeURL'                       => get_site_url(),
-            'currentUser'                   => empty($currentUser) ?  null : $currentUser['data']['viewer'],
-            'allSettings'                   => empty($allSettings) ?  null : $allSettings['data']['allSettings'],
-            'currentObject'                 => ['id'    => get_the_ID()],
+            'currentUser'                   => empty($currentUser['data']['viewer']) ?  null : $currentUser['data']['viewer'],
+            'allSettings'                   => empty($allSettings['data']['allSettings']) ?  null : $allSettings['data']['allSettings'],
+            'currentObject'                 => ['id'    => get_queried_object_id()],
             'pll_current_language'          => function_exists('pll_current_language') ? strtoupper(pll_current_language()) : null,
             'pll_current_language_correct_code' => function_exists('pll_current_language') ? pll_current_language() : null,
             'pll_themeoption_actived'       => (function_exists('pll_current_language') && $IS_ENABLE_POLYLANG_SWITCH) ? true : null,
             'musicPlayerMode'               => true,
             'musicPlayerMediaSource'        => $ncmaz_redux_demo['nc-general-settings--music-player-media-source'],
             'switchPreviewVideo'            => boolval($ncmaz_redux_demo['nc-general-settings--general-switch-preview-video-card']),
+            'isPlaceholderPostNotFeatured'    => boolval($ncmaz_redux_demo['post-card--placeholder-for-post-has-not-featured']),
             'restVarsEndpoint'              => esc_url_raw(rest_url('/wp/v2/media/')),
             'restVarsNonce'                 => wp_create_nonce('wp_rest'),
             'pagePostSubmissionEditorUrl'   => empty($variablePagePostSubmissionEditorUrl) ? "" : $variablePagePostSubmissionEditorUrl,
@@ -173,7 +174,11 @@ function ncmazFe_enqueueScriptCustomize()
                 ],
             ],
             // 
-            "isActivePluginFavorites" => boolval(defined("FAVORITES_PLUGIN_FILE"))
+            "isActivePluginFavorites"       => boolval(defined("FAVORITES_PLUGIN_FILE")),
+            "currentPageType"               => ncmazFe_getPageType(),
+            // 
+            "archivePostCardType"           => $ncmaz_redux_demo['nc-search-page-settings--post-card-type'] ?? "card11",
+            "enableScrollToTop"             => boolval($ncmaz_redux_demo['nc-general-settings--general-switch-scroll-to-top'] ?? true),
 
         ]
     ), 'before');
@@ -187,7 +192,7 @@ function ncmazFe_enqueueScriptCustomize()
 }
 
 // ======================== ENABLE WHEN PRODUCT/DEPLOY MODE ========================
-add_action('wp_enqueue_scripts', 'ncmazFe_registerScripts');
+add_action('wp_enqueue_scripts', 'ncmazFe_registerScripts', 999);
 function ncmazFe_registerScripts()
 {
     $manifestJS = false;
@@ -208,7 +213,7 @@ function ncmazFe_registerScripts()
     }
     // JS 
     if (is_author()) {
-        wp_enqueue_script($name, _NCMAZ_FRONTEND_DIR_URL . 'dist/' . $jsFileUrl, ['ncmazFe-mainJs'], ['jquery'], true);
+        wp_enqueue_script($name, _NCMAZ_FRONTEND_DIR_URL . 'dist/' . $jsFileUrl, ['jquery', 'ncmazFe-mainJs'], null, true);
     } else {
         wp_enqueue_script($name, _NCMAZ_FRONTEND_DIR_URL . 'dist/' . $jsFileUrl, ['ncmazFe-mainJs'], null, true);
     }
@@ -236,7 +241,7 @@ function ncmaz_frontend_enqueue_script($hook)
     window.__vite_plugin_react_preamble_installed__  = true
 </script>';
 
-    wp_enqueue_script('@vite-client-js', 'http://localhost:5173/@vite/client', [], null, true);
-    wp_enqueue_script('ncmaz-frontend-src-main-tsx', 'http://localhost:5173/src/main.tsx', [], null, true);
+    wp_enqueue_script('@vite-client-js', 'http://localhost:5173/@vite/client', ['jquery'], null, true);
+    wp_enqueue_script('ncmaz-frontend-src-main-tsx', 'http://localhost:5173/src/main.tsx', ['jquery'], null, true);
 }
 // --------------------------------------------------------------------------------------

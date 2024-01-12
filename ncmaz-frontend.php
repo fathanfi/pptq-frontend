@@ -13,12 +13,14 @@
  *
  */
 
-define('_NCMAZ_FRONTEND_VERSION', '4.1.3');
+define('_NCMAZ_FRONTEND_VERSION', '4.4.3');
 define('_NCMAZ_FRONTEND_DIR_URL', plugin_dir_url(__FILE__));
 define('_NCMAZ_FRONTEND_DIR_PATH', plugin_dir_path(__FILE__));
 define('_NCMAZ_FRONTEND_PREFIX', 'ncmaz_frontend_prefix_');
 define('_NCMAZ_FRONTEND_TEXT_DOMAIN', 'ncmaz-frontend');
 
+// 
+require plugin_dir_path(__FILE__) . 'inc/ncmaz-fe-total-counts-for-wp-graphql.php';
 // 
 require plugin_dir_path(__FILE__) . 'inc/ncmaz-custom-funcs.php';
 // 
@@ -35,11 +37,11 @@ add_action('plugins_loaded',  function () {
     require plugin_dir_path(__FILE__) . 'inc/ncmaz-redux-sample-config.php';
     // 
     require plugin_dir_path(__FILE__) . 'inc/ncmaz-custom-wpgraphql.php';
+    // 
+    require plugin_dir_path(__FILE__) . 'inc/ncmaz-reCaptcha.php';
 });
 
 // ... 
-
-
-// 
 // FOR END ==========
 require plugin_dir_path(__FILE__) . 'inc/ncmaz-custom-hooks.php';
+// 
